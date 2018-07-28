@@ -1,0 +1,39 @@
+<template>
+    <Articles :articles = "articles"></Articles>
+</template>
+
+<script>
+    import Articles from '~/components/articles/Articles'
+    export default {
+        name: "ArticlesFromCategory",
+        layout: 'blog',
+        components: {Articles},
+        data() {
+            return {}
+        },
+        head () {
+            return {
+                title: this.activeCategory.name,
+                meta: [
+                    { hid: 'description', name: 'description', content: 'About our company Nuxt.js ' }
+                ]
+            }
+        },
+        computed:{
+            activeCategory(){
+                return this.$store.getters.categories.find((category) => category.id === this.$route.params.slug)
+            }
+        },
+        asyncData(context){
+            return context.app.$api.fetchArticlesFromCategory(context.params.slug).then(response => {
+                return {
+                    articles: response
+                }
+            })
+        }
+    }
+</script>
+
+<style>
+
+</style>
