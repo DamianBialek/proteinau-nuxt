@@ -1,14 +1,24 @@
 <template>
-    <header class="page-header">
+    <header class="page-header" >
         <div class="container">
-            <p>Blog</p>
+            <p>{{headerTitle}}</p>
         </div>
     </header>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     export default {
-        name: "Header"
+        name: "Header",
+        data(){
+            return {
+            }
+        },
+        computed:{
+            ...mapGetters([
+                'headerTitle'
+            ])
+        }
     }
 </script>
 

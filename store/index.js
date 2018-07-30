@@ -3,7 +3,8 @@ import Vuex from 'vuex'
 const createStore = () => {
     return new Vuex.Store({
         state: {
-            categories: {}
+            categories: {},
+            headerTitle: ''
         },
         actions:{
             loadCategories({commit}){
@@ -12,18 +13,25 @@ const createStore = () => {
                       commit('setCategories', response)
                   })
             },
-            async nuxtServerInit({ dispatch }) {
+            async nuxtServerInit({commit, dispatch }) {
                 await dispatch('loadCategories')
+                commit("setHeaderTitle", "Blog")
             }
         },
         mutations: {
             setCategories(state, payload){
                 state.categories = payload
+            },
+            setHeaderTitle(state, payload){
+                state.headerTitle = payload
             }
         },
         getters: {
             categories(state){
                 return state.categories
+            },
+            headerTitle(state){
+                return state.headerTitle
             }
         }
     })

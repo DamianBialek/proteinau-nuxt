@@ -30,6 +30,9 @@
                     articles: response
                 }
             })
+        },
+        created(){
+            this.$store.commit("setHeaderTitle", 'Wpisy z kategorii: '+this.activeCategory.name)
         }
     }
 </script>

@@ -26,8 +26,8 @@
         data() {
             return {}
         },
-        mounted(){
-            console.log(this.$router.options.routes)
+        created(){
+            this.$store.commit("setHeaderTitle", 'Blog - Najnowsze wpisy')
         }
     }
 </script>
