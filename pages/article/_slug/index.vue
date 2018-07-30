@@ -1,7 +1,7 @@
 <template>
     <article>
         <header class="article-header">
-            <h1>{{article.title}}</h1>
+            <!--<h1>{{article.title}}</h1>-->
             <span class="article-date">{{article.date}}</span>
         </header>
         <div class="article-body mt-2 mb-2">
@@ -37,6 +37,9 @@
                     article: response
                 }
             })
+        },
+        created(){
+            this.$store.commit("setHeaderTitle", this.article.title)
         }
     }
 </script>

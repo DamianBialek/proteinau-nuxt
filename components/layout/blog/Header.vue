@@ -1,7 +1,7 @@
 <template>
     <header class="page-header" >
         <div class="container">
-            <p>{{headerTitle}}</p>
+            <h1>{{headerTitle}}</h1>
         </div>
     </header>
 </template>
@@ -26,13 +26,14 @@
     .page-header{
         background-color: #333;
         color: #fff;
-        height: 80px;
+        padding: 10px;
         display: flex;
         align-items: center;
 
-        p{
+        h1{
             margin: 0;
             font-size: 2rem;
+            font-weight: normal;
         }
     }
 </style>
