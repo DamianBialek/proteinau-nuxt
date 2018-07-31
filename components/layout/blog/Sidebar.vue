@@ -4,7 +4,7 @@
             KATEGORIE
         </header>
         <ul class="list-group">
-            <nuxt-link :to="{name: 'articles-slug', params: {slug: category.id}}" tag="li" active-class="active" v-for="category in categories" :key="category.id" class="list-group-item">
+            <nuxt-link :to="{name: 'articles-slug', params: {slug: category.slug}}" tag="li" active-class="active" v-for="category in categories" :key="category.id" class="list-group-item">
                 <a>{{category.name}}</a>
             </nuxt-link>
         </ul>

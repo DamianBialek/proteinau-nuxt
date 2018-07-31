@@ -11,8 +11,8 @@ const api = {
     fetchCategories() {
         return Vue.http.get(url.categories).then(response => response.body)
     },
-    fetchArticlesFromCategory(categoryId) {
-        return Vue.http.get(url.articlesFromCategory + categoryId).then(response => response.body)
+    fetchArticlesFromCategory(categorySlug) {
+        return Vue.http.get(url.articlesFromCategory + categorySlug).then(response => response.body)
     }
 }
 

@@ -29,6 +29,7 @@
         padding: 10px;
         display: flex;
         align-items: center;
+        min-height: 80px;
 
         h1{
             margin: 0;

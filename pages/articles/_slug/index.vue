@@ -21,7 +21,7 @@
         },
         computed:{
             activeCategory(){
-                return this.$store.getters.categories.find((category) => category.id === this.$route.params.slug)
+                return this.$store.getters.categories.find((category) => category.slug === this.$route.params.slug)
             }
         },
         asyncData(context){
