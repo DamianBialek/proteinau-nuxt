@@ -6,7 +6,7 @@
             </nuxt-link>
             <div class="card-body">
                 <nuxt-link :to="{name: 'article-slug', params: {slug: article.slug}}" class="card-title article-link"><h2>{{article.title}}</h2></nuxt-link>
-                <span class="article-meta">{{article.category_name}}</span>
+                <nuxt-link :to="{name: 'articles-slug', params: {slug: getCategorySlug(article.category_id)}}" class="article-meta">{{article.category_name}}</nuxt-link>
                 <p class="card-text">{{article.text.substr(0, 200)+"..."}}</p>
                 <nuxt-link :to="{name: 'article-slug', params: {slug: article.slug}}" class="btn article-link-btn">Czytaj więcej</nuxt-link>
             </div>
@@ -25,6 +25,12 @@
                 required: true
             },
             loading: false
+        },
+        methods:{
+            getCategorySlug: function(categoryId){
+                let categoryFound = this.$store.getters.categories.find((cat) => cat.id === categoryId)
+                return (categoryFound && categoryFound.slug ? categoryFound.slug : '')
+            }
         }
     }
 </script>
@@ -74,6 +80,13 @@
 
     .article-meta{
         font-size: 0.85rem;
+        color: #000;
+        transition: color .15s ease-in-out;
+
+        &:hover{
+            text-decoration: none;
+            color: #70C14A;
+        }
     }
 
     .card-title{

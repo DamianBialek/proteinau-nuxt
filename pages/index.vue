@@ -26,7 +26,7 @@
         data() {
             return {}
         },
-        created(){
+        created() {
             this.$store.commit("setHeaderTitle", 'Blog - Najnowsze wpisy')
         }
     }

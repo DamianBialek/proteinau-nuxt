@@ -24,6 +24,8 @@
 </script>
 
 <style lang="scss">
+    @import '@/assets/transitions.css';
+
     html{
         height: 100%;
     }
