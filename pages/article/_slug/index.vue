@@ -8,8 +8,7 @@
             <div class="article-thumbail">
                 <img src="http://www.gstatic.com/webp/gallery/2.jpg" />
             </div>
-            <div class="article-content">
-                <p>{{article.text}}</p>
+            <div class="article-content" v-html="article.text">
             </div>
         </div>
     </article>

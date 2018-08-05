@@ -13,6 +13,27 @@ const api = {
     },
     fetchArticlesFromCategory(categorySlug) {
         return Vue.http.get(url.articlesFromCategory + categorySlug).then(response => response.body)
+    },
+    addArticle(article) {
+        return Vue.http.post(url.addArticle, article,{
+                emulateJSON: true
+            })
+            .then(response => response.body)
+            .catch(error => console.log("error"))
+    },
+    editArticle(article) {
+        return Vue.http.post(url.editArticle + article.id, article,{
+            emulateJSON: true
+        })
+            .then(response => response.body)
+            .catch(error => console.log("error"))
+    },
+    deleteArticle(article) {
+        return Vue.http.post(url.deleteArticle, article,{
+            emulateJSON: true
+        })
+            .then(response => response.body)
+            .catch(error => console.log("error"))
     }
 }
 

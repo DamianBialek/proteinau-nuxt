@@ -40,5 +40,15 @@
     .admin-content{
         margin-left: 200px;
         padding: 30px 15px;
+        width: calc(100% - 200px);
+        min-height: 100%;
+
+        .row{
+            padding: 1rem 0;
+
+            &:first-child{
+                padding-top: 0;
+            }
+        }
     }
 </style>
