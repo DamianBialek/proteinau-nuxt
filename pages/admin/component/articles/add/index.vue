@@ -55,8 +55,13 @@
             addArticle(){
                 this.$api.addArticle(this.article)
                     .then(response => {
-                        if(response.success === true)
-                            this.$router.push({name:'admin-component-articles'})
+                        if(response.success === true) {
+                            this.$message({type: 'success', message: "Pomyślnie dodano artykuł"})
+                            this.$router.push({name: 'admin-component-articles'})
+                        }
+                        else{
+                            this.$message({type: 'danger', message: response.error})
+                        }
                     })
             }
         },

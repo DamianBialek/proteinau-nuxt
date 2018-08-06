@@ -4,7 +4,11 @@
             <Header />
             <main>
                 <Sidebar />
-                <nuxt class="admin-content" />
+                <div class="admin-content">
+                    <message-notification />
+                    <nuxt />
+                </div>
+
             </main>
         </div>
     </no-ssr>
@@ -15,11 +19,19 @@
     import Sidebar from '@/components/layout/admin/Sidebar'
     export default {
         name: "admin",
-        components: {Header, Sidebar}
+        components: {Header, Sidebar},
+        middleware: ['admin'],
+        mounted(){
+            this.$on('test', () =>{
+                alert("awrar")
+            })
+        }
     }
 </script>
 
 <style lang="scss">
+    @import '@/assets/transitions.css';
+
     html, .admin-container{
         height: 100%;
     }

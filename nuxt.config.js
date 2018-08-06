@@ -62,7 +62,8 @@ module.exports = {
     },
     plugins: [
         '~/plugins/vue-resource',
-        '~/plugins/api'
+        '~/plugins/api',
+        '~/plugins/messages'
     ]
 }
 

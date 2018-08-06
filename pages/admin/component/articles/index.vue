@@ -45,11 +45,12 @@
                 if(confirm("Czy na pewno chcesz usunąć artykuł "+article.title)){
                     this.$api.deleteArticle(article)
                         .then(response => {
-                            console.log(response)
-
                             this.$api.fetchArticles().then(response => {
                                 this.articles = response
                             })
+
+                            if(response.success === true)
+                                this.$message({type:'success', message: 'Pomyślnie usunięto artykuł'})
                         })
 
                 }
