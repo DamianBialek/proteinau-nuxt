@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="admin-page-actions">
-                <button type="button" class="btn actions-btn ml-auto" @click="updateArticle">Zapisz zmiany</button>
+                <button type="button" class="btn admin-btn ml-auto" @click="updateArticle">Zapisz zmiany</button>
             </div>
         </div>
         <div class="add-article-form-box row">
@@ -73,16 +73,6 @@
         display: flex;
         width: 100%;
         padding: 0 15px;
-
-        .actions-btn{
-            color: #fff;
-            background-color: #70C14A;
-
-            &:hover{
-                color: #fff;
-                background-color: #309006;
-            }
-        }
     }
     .article-add-field{
         border-top: none;

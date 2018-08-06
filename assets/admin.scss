@@ -1,0 +1,13 @@
+$primaryColor: #70C14A;
+$hoverPrimaryColor: #309006;
+$primaryFontColor: #fff;
+
+.admin-btn{
+  color: $primaryFontColor;
+  background-color: $primaryColor;
+
+  &:hover{
+    color: $primaryFontColor;
+    background-color: $hoverPrimaryColor;
+  }
+}

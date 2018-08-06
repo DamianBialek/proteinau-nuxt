@@ -31,6 +31,7 @@
 
 <style lang="scss">
     @import '@/assets/transitions.css';
+    @import '@/assets/admin.scss';
 
     html, .admin-container{
         height: 100%;

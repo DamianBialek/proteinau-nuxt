@@ -5,7 +5,11 @@
 //     editArticle: 'http://localhost/cms_api/article/edit/',
 //     deleteArticle: 'http://localhost/cms_api/article/delete',
 //     categories: 'http://localhost/cms_api/categories',
-//     articlesFromCategory: 'http://localhost/cms_api/articles/'
+//     category: 'http://localhost/cms_api/category/',
+//     addCategory: 'http://localhost/cms_api/category/add',
+//     articlesFromCategory: 'http://localhost/cms_api/articles/',
+//     editCategory: 'http://localhost/cms_api/category/edit/',
+//     deleteCategory: 'http://localhost/cms_api/category/delete'
 // }
 
 export const url = {
@@ -15,7 +19,11 @@ export const url = {
     editArticle: 'https://bialko.000webhostapp.com/article/edit/',
     deleteArticle: 'https://bialko.000webhostapp.com/article/delete',
     categories: 'https://bialko.000webhostapp.com/categories',
-    articlesFromCategory: 'https://bialko.000webhostapp.com/articles/'
+    category: 'https://bialko.000webhostapp.com/category/',
+    addCategory: 'https://bialko.000webhostapp.com/category/add',
+    articlesFromCategory: 'https://bialko.000webhostapp.com/articles/',
+    editCategory: 'https://bialko.000webhostapp.com/category/edit/',
+    deleteCategory: 'https://bialko.000webhostapp.com/category/delete'
 }
 
 export const projectConfig = {

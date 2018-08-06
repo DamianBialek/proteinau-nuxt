@@ -1,7 +1,12 @@
 <template>
     <div>
+        <div class="row">
+            <div class="col-12">
+                <h3>Lista artykułów</h3>
+            </div>
+        </div>
         <div class="admin-page-actions">
-            <nuxt-link :to='{name:"admin-component-articles-add"}' type="button" class="btn actions-btn ml-auto">Utwórz nowy artykuł</nuxt-link>
+            <nuxt-link :to='{name:"admin-component-articles-add"}' type="button" class="btn admin-btn ml-auto">Utwórz nowy artykuł</nuxt-link>
         </div>
         <table class="table table-hover">
             <thead>
@@ -20,7 +25,7 @@
                     <td>{{article.title}}</td>
                     <td><nuxt-link target="_blank" :to="{name: 'article-slug', params: {slug: article.slug}}">{{article.slug}}</nuxt-link></td>
                     <td>
-                        <nuxt-link :to="{name:'admin-component-articles-edit-id', params:{id: article.id} }" type="button" class="btn actions-btn articles-list-btn">Edytuj</nuxt-link>
+                        <nuxt-link :to="{name:'admin-component-articles-edit-id', params:{id: article.id} }" type="button" class="btn admin-btn articles-list-btn">Edytuj</nuxt-link>
                         <button type="button" class="btn btn-danger articles-list-btn" @click="deleteArticle(article)">Usuń</button>
                     </td>
                 </tr>
@@ -63,15 +68,6 @@
     .admin-page-actions{
         display: flex;
         margin: 1rem 0;
-    }
-    .actions-btn{
-        color: #fff;
-        background-color: #70C14A;
-
-        &:hover{
-            color: #fff;
-            background-color: #309006;
-        }
     }
     .articles-list-btn{
         margin: 5px;
