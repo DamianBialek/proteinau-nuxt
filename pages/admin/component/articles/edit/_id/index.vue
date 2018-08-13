@@ -15,12 +15,6 @@
                 <label for="article-title" class="input-label">Tytuł artykułu</label>
                 <input v-model="article.title" type="text" class="form-control article-add-field" id="article-title">
             </div>
-            <div class="col-9">
-                <div class="form-group">
-                    <label for="article-alias" class="input-label">Alias</label>
-                    <input type="text" class="form-control article-add-field" id="article-alias" v-model="article.slug">
-                </div>
-            </div>
             <div class="col-3">
                 <div class="form-group">
                     <label for="article-category">Kategoria</label>
@@ -45,8 +39,13 @@
             updateArticle(){
                 this.$api.editArticle(this.article)
                     .then(response => {
-                        if(response.success === true)
-                            this.$router.push({name:'admin-component-articles'})
+                        if(response.success === true) {
+                            this.$message({type: 'success', message: "Pomyślnie zaaktualizowano artykuł", keepAlive: true})
+                            this.$router.push({name: 'admin-component-articles'})
+                        }
+                        else{
+                            this.$message({type: 'danger', message: response.error})
+                        }
                     })
             }
         },

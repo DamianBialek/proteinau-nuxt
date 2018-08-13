@@ -16,11 +16,12 @@
 </script>
 
 <style lang="scss">
+@import '@/assets/admin.scss';
 .sidebar{
     height: 100%;
     position: fixed;
     left: 0;
-    background-color: #70C14A;
+    background-color: $primaryColor;
     width: 200px;
 
     .admin-link{
@@ -28,7 +29,11 @@
         color: #fff;
 
         &:hover{
-            background-color: #309006;
+            background-color: $hoverPrimaryColor;
+        }
+
+        &.active{
+            color: #000;
         }
     }
 }

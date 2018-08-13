@@ -4,7 +4,9 @@ const createStore = () => {
     return new Vuex.Store({
         state: {
             categories: {},
-            headerTitle: ''
+            headerTitle: '',
+            admin: false,
+            error: null
         },
         actions:{
             loadCategories({commit}){
@@ -16,6 +18,19 @@ const createStore = () => {
             async nuxtServerInit({commit, dispatch }) {
                 await dispatch('loadCategories')
                 commit("setHeaderTitle", "Blog")
+            },
+            adminSignIn({commit}, payload){
+                this.$api.adminLogin(payload)
+                    .then(response => {
+                        if(response.success === true && response.token) {
+                            localStorage.setItem('adminToken', response.token)
+                            commit('adminLogin')
+                            commit('clearError')
+                        }else{
+                            commit('setError', response.error)
+                        }
+                    })
+                    .catch(error => console.log(error))
             }
         },
         mutations: {
@@ -24,6 +39,15 @@ const createStore = () => {
             },
             setHeaderTitle(state, payload){
                 state.headerTitle = payload
+            },
+            adminLogin(state){
+                state.admin = true
+            },
+            setError(state, payload){
+                state.error = payload
+            },
+            clearError(state){
+                state.error = null
             }
         },
         getters: {
@@ -32,6 +56,12 @@ const createStore = () => {
             },
             headerTitle(state){
                 return state.headerTitle
+            },
+            admin(state){
+                return state.admin
+            },
+            error(state) {
+                return state.error
             }
         }
     })

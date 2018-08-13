@@ -1,12 +1,20 @@
 <template>
+    <transition name="message">
     <div v-if="show" class="message-notification-box">
         <div v-if="type === 'danger'" class="alert alert-danger" role="alert">
-            {{date}}: <b>{{message}}</b>
+            <span v-if="showDate">{{date}}: </span> <b>{{message}}</b>
+            <button type="button" class="close" aria-label="Close" @click="closeMessage">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div v-else-if="type === 'success'" class="alert alert-success" role="alert">
-            {{date}}: <b>{{message}}</b>
+            <span v-if="showDate">{{date}}: </span> <b>{{message}}</b>
+            <button type="button" class="close" aria-label="Close" @click="closeMessage">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     </div>
+    </transition>
 </template>
 
 <script>
@@ -19,7 +27,9 @@
                 show: false,
                 type: "danger",
                 message: '',
-                visibleToNextTick: true
+                visibleToNextTick: true,
+                keepAlive: false,
+                showDate: true
             }
         },
         computed:{
@@ -30,10 +40,13 @@
         },
         mounted(){
             messageHub.$on("showMessage", (params) => {
+                console.log(params)
                 this.type = params.type
                 this.message = params.message
                 this.show = true
                 this.visibleToNextTick = false
+                this.keepAlive = (params.keepAlive ? true : false)
+                this.showDate = (params.date !== undefined ? params.date : true)
             })
             messageHub.$on("hideMessage", () => {
                 this.hideMessages()
@@ -41,6 +54,13 @@
         },
         methods: {
             hideMessages(){
+                if(this.keepAlive)
+                    this.keepAlive = false
+                else
+                    this.show = false
+            },
+            closeMessage(){
+                this.keepAlive = false
                 this.show = false
             }
         }

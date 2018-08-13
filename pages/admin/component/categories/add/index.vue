@@ -42,7 +42,7 @@
                 this.$api.addCategory(this.category)
                     .then(response => {
                         if(response.success === true) {
-                            this.$message({type: 'success', message: "Pomyślnie dodano kategorię"})
+                            this.$message({type: 'success', message: "Pomyślnie dodano kategorię", keepAlive: true})
                             this.$router.push({name: 'admin-component-categories'})
                         }
                         else{

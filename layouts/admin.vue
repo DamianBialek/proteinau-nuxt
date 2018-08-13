@@ -20,12 +20,7 @@
     export default {
         name: "admin",
         components: {Header, Sidebar},
-        middleware: ['admin'],
-        mounted(){
-            this.$on('test', () =>{
-                alert("awrar")
-            })
-        }
+        middleware: ['admin']
     }
 </script>
 
@@ -33,23 +28,7 @@
     @import '@/assets/transitions.css';
     @import '@/assets/admin.scss';
 
-    html, .admin-container{
-        height: 100%;
-    }
 
-    body{
-        min-height: 100%;
-        height: 100%;
-        position: relative;
-    }
-    main{
-        padding-top: 60px;
-        margin: 0;
-        height: 100%;
-    }
-    #__nuxt, #__layout{
-        height: 100%;
-    }
     .admin-content{
         margin-left: 200px;
         padding: 30px 15px;

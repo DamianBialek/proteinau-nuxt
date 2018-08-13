@@ -15,12 +15,6 @@
                 <label for="category-name" class="input-label">Nazwa kategorii</label>
                 <input v-model="category.name" type="text" class="form-control article-add-field" id="category-name">
             </div>
-            <div class="col-9">
-                <div class="form-group">
-                    <label for="category-alias" class="input-label">Alias</label>
-                    <input type="text" class="form-control article-add-field" id="category-alias" v-model="category.slug">
-                </div>
-            </div>
         </div>
     </div>
 </template>
@@ -42,7 +36,7 @@
                 this.$api.editCategory(this.category)
                     .then(response => {
                         if(response.success === true) {
-                            this.$message({type: 'success', message: "Pomyślnie zaaktualizowano kategorię"})
+                            this.$message({type: 'success', message: "Pomyślnie zaaktualizowano kategorię", keepAlive: true})
                             this.$router.push({name: 'admin-component-categories'})
                         }
                         else{

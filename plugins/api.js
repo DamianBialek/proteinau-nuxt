@@ -53,7 +53,7 @@ const api = {
             emulateJSON: true
         })
             .then(response => response.body)
-            .catch(error => console.log("error"))
+            .catch(error => error)
     },
     editCategory(category) {
         return Vue.http.post(url.editCategory+category.id, category,{
@@ -68,6 +68,13 @@ const api = {
         })
             .then(response => response.body)
             .catch(error => console.log("error"))
+    },
+    adminLogin(user) {
+        return Vue.http.post(url.admin.login, user,{
+            emulateJSON: true
+        })
+            .then(response => response.body)
+            .catch(error => error)
     }
 }
 

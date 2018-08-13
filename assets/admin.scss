@@ -1,6 +1,25 @@
 $primaryColor: #70C14A;
 $hoverPrimaryColor: #309006;
 $primaryFontColor: #fff;
+$primaryBackgroundColor: #333;
+
+html, .admin-container{
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+}
+main{
+  padding-top: 60px;
+  margin: 0;
+  height: 100%;
+}
+#__nuxt, #__layout{
+  height: 100%;
+}
 
 .admin-btn{
   color: $primaryFontColor;
