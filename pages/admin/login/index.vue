@@ -19,6 +19,7 @@
 </template>
 
 <script>
+    import {setToken} from "@/utils/auth";
     export default {
         name: "index",
         data(){
@@ -29,29 +30,18 @@
                 }
             }
         },
-        computed:{
-            errorLogin(){
-                return this.$store.getters.error
-            },
-            adminLogin(){
-                return this.$store.getters.admin
-            }
-        },
         methods:{
             login(){
-                this.$store.dispatch("adminSignIn", this.user)
-            }
-        },
-        watch:{
-            errorLogin(error){
-                if(error)
-                    this.$message({type: 'danger', message: error, date: false})
-                else
-                    this.$message("hideMessage")
-            },
-            adminLogin(admin){
-                if(admin && !this.errorLogin)
-                    this.$router.push({name: 'admin'})
+                this.$api.adminLogin(this.user)
+                    .then(response => {
+                        if(response.success === true && response.token) {
+                            setToken(response.token)
+                            this.$router.push({name: 'admin'})
+                        }else{
+                            this.$message({type: 'danger', message: response.error, date: false})
+                        }
+                    })
+                    .catch(error => console.log(error))
             }
         }
     }
