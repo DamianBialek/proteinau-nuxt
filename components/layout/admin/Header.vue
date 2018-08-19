@@ -1,12 +1,37 @@
 <template>
     <header class="admin-header">
-        <nuxt-link to="/admin">Admin</nuxt-link>
+        <div class="col admin-logo">
+            <nuxt-link to="/admin">Admin</nuxt-link>
+        </div>
+        <div v-if="isAuthenticatedAdmin" class="col admin-user text-right">
+            <div class="col-8">
+                <span>Zalogowano jako: <b>{{loggedAdmin.name}}</b></span>
+            </div>
+            <div class="col text-right">
+                <button class="btn admin-btn" @click="logout">Wyloguj</button>
+            </div>
+        </div>
     </header>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
+    import {removeToken} from "@/utils/auth";
+
     export default {
-        name: "Header"
+        name: "Header",
+        computed:{
+            ...mapGetters([
+                'isAuthenticatedAdmin',
+                'loggedAdmin'
+            ])
+        },
+        methods:{
+            logout(){
+                removeToken()
+                console.log(this.$router.push({name: 'admin-login'}))
+            }
+        }
     }
 </script>
 
@@ -30,6 +55,11 @@
             text-decoration: none;
             color: #70C14A;
         }
+    }
+
+    .admin-user{
+        display: flex;
+        align-items: center;
     }
 }
 </style>

@@ -8,6 +8,13 @@ export const setToken = (token) => {
     Cookie.set('jwt', token)
 }
 
+export const removeToken = () => {
+    if (process.SERVER_BUILD) return
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    Cookie.remove('jwt')
+}
+
 export const getUserFromCookie = (req) => {
     const jwt = getTokenFromCookie(req)
     if(!jwt) return

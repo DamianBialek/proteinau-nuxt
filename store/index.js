@@ -41,7 +41,7 @@ const createStore = () => {
                 return !!state.admin
             },
             loggedAdmin (state) {
-                return state.admin
+                return state.admin.data.user
             }
         }
     })
