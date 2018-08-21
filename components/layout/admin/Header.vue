@@ -8,7 +8,7 @@
                 <span>Zalogowano jako: <b>{{loggedAdmin.name}}</b></span>
             </div>
             <div class="col text-right">
-                <button class="btn admin-btn" @click="logout">Wyloguj</button>
+                <button class="btn admin-btn" @click="logout" title="Wyloguj"><i class="fa fa-power-off" aria-hidden="true"></i></button>
             </div>
         </div>
     </header>
@@ -29,7 +29,7 @@
         methods:{
             logout(){
                 removeToken()
-                console.log(this.$router.push({name: 'admin-login'}))
+                this.$router.push({name: 'admin-login'})
             }
         }
     }

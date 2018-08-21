@@ -10,8 +10,9 @@ export default ({ store, redirect, req}) => {
 
     Vue.message("hideMessage")
 
-    if(!store.getters.isAuthenticatedAdmin)
+    if(!store.getters.isAuthenticatedAdmin) {
         return redirect({name: 'admin-login'})
+    }
 
     Vue.http.interceptors.push(function(request, next) {
         const token = getToken(req)
@@ -19,7 +20,6 @@ export default ({ store, redirect, req}) => {
 
         next(function(response){
             if(response.status >= 400 && response.status <= 500) {
-                store.dispatch("clearAdminData")
                 redirect({name: 'admin-login'})
             }
         })

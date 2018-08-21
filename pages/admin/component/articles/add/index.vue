@@ -53,7 +53,7 @@
         },
         methods:{
             addArticle(){
-                this.$api.addArticle(this.article)
+                this.$api.action(this.$api.url.admin.addArticle,this.article)
                     .then(response => {
                         if(response.success === true) {
                             this.$message({type: 'success', message: "Pomyślnie dodano artykuł", keepAlive: true})

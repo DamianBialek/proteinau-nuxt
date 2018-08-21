@@ -1,18 +1,8 @@
+import globalUrl from './url/global.js'
+import adminUrl from './url/admin.js'
 export const url = {
-    articles: 'http://localhost/cms_api/articles',
-    article: 'http://localhost/cms_api/article/',
-    addArticle: 'http://localhost/cms_api/article/add',
-    editArticle: 'http://localhost/cms_api/article/edit/',
-    deleteArticle: 'http://localhost/cms_api/article/delete',
-    categories: 'http://localhost/cms_api/categories',
-    category: 'http://localhost/cms_api/category/',
-    addCategory: 'http://localhost/cms_api/category/add',
-    articlesFromCategory: 'http://localhost/cms_api/articles/',
-    editCategory: 'http://localhost/cms_api/category/edit/',
-    deleteCategory: 'http://localhost/cms_api/category/delete',
-    admin: {
-        login: 'http://localhost/cms_api/admin/login'
-    }
+    ...globalUrl,
+    ...adminUrl
 }
 
 // export const url = {

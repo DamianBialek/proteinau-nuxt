@@ -2,8 +2,8 @@
     <div class="sidebar">
         <nav>
             <div class="list-group list-group-flush">
-                <nuxt-link to="/admin/component/articles" class="list-group-item admin-link" exact-active-class="" active-class="active">ARTYKUŁY</nuxt-link>
-                <nuxt-link to="/admin/component/categories" class="list-group-item admin-link" exact-active-class="" active-class="active">KATEGORIE</nuxt-link>
+                <nuxt-link to="/admin/component/articles" class="list-group-item admin-link" exact-active-class="" active-class="active"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> ARTYKUŁY</nuxt-link>
+                <nuxt-link to="/admin/component/categories" class="list-group-item admin-link" exact-active-class="" active-class="active"><i class="fa fa-list" aria-hidden="true"></i> KATEGORIE</nuxt-link>
             </div>
         </nav>
     </div>

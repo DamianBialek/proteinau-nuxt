@@ -39,7 +39,7 @@
         },
         methods:{
             addCategory(){
-                this.$api.addCategory(this.category)
+                this.$api.action(this.$api.url.admin.addCategory, this.category)
                     .then(response => {
                         if(response.success === true) {
                             this.$message({type: 'success', message: "Pomyślnie dodano kategorię", keepAlive: true})

@@ -39,7 +39,7 @@
         name: "component-articles",
         layout: 'admin',
         asyncData ({app}) {
-            return app.$api.fetchArticles().then(response => {
+            return app.$api.fetch(app.$api.url.admin.articles).then(response => {
                 return {
                     articles: response
                 }
@@ -48,7 +48,7 @@
         methods: {
             deleteArticle(article){
                 if(confirm("Czy na pewno chcesz usunąć artykuł "+article.title)){
-                    this.$api.deleteArticle(article)
+                    this.$api.action(this.$api.url.admin.deleteArticle,article)
                         .then(response => {
                             this.$api.fetchArticles().then(response => {
                                 this.articles = response

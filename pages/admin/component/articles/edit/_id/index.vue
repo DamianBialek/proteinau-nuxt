@@ -37,7 +37,7 @@
         layout: 'admin',
         methods:{
             updateArticle(){
-                this.$api.editArticle(this.article)
+                this.$api.action(this.$api.url.admin.editArticle(this.article.id),this.article)
                     .then(response => {
                         if(response.success === true) {
                             this.$message({type: 'success', message: "Pomyślnie zaaktualizowano artykuł", keepAlive: true})

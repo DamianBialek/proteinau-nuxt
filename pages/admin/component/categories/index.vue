@@ -39,7 +39,7 @@
         name: "component-categories",
         layout: 'admin',
         asyncData ({app}) {
-            return app.$api.fetchCategories().then(response => {
+            return app.$api.fetch(app.$api.url.admin.categories).then(response => {
                 return {
                     categories: response
                 }
@@ -48,9 +48,9 @@
         methods: {
             deleteCategory(category){
                 if(confirm("Czy na pewno chcesz usunąć categorię "+category.name)){
-                    this.$api.deleteCategory(category)
+                    this.$api.action(this.$api.url.admin.deleteCategory, category)
                         .then(response => {
-                            this.$api.fetchCategories().then(response => {
+                            this.$api.fetch(this.$api.url.admin.categories).then(response => {
                                 this.categories = response
                             })
 

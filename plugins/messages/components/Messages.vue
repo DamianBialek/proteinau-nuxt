@@ -29,24 +29,27 @@
                 message: '',
                 visibleToNextTick: true,
                 keepAlive: false,
-                showDate: true
+                showDate: true,
+                interval: 2000
             }
         },
         computed:{
             date: function(){
                 let date = new Date()
+
                 return date.toLocaleString('pl-PL');
             }
         },
         mounted(){
             messageHub.$on("showMessage", (params) => {
-                console.log(params)
                 this.type = params.type
                 this.message = params.message
                 this.show = true
                 this.visibleToNextTick = false
                 this.keepAlive = (params.keepAlive ? true : false)
                 this.showDate = (params.date !== undefined ? params.date : true)
+
+                setTimeout(()=> this.show = false, this.interval)
             })
             messageHub.$on("hideMessage", () => {
                 this.hideMessages()

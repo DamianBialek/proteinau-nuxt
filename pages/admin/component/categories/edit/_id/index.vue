@@ -33,7 +33,7 @@
         },
         methods:{
             updateCategory(){
-                this.$api.editCategory(this.category)
+                this.$api.action(this.$api.url.admin.editCategory(this.category.id),this.category)
                     .then(response => {
                         if(response.success === true) {
                             this.$message({type: 'success', message: "Pomyślnie zaaktualizowano kategorię", keepAlive: true})
